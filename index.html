@@ -3,301 +3,302 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IvyRose Luxury Apartments</title>
+<title>IvyRose Luxury Apartments | Airbnb Short Stays in Uganda</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-:root {
-  --forest: #0D2B1F;
-  --forest-mid: #1A4030;
-  --gold: #C6A45A;
-  --gold-light: #D9BC7E;
-  --gold-pale: #F5EDD8;
-  --cream: #FAF8F4;
-  --warm-white: #FFFEF9;
-  --text: #1A1A1A;
-  --warm-grey: #8A7D72;
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+:root{
+  --forest:#0D2B1F;
+  --forest2:#1A4030;
+  --gold:#C6A45A;
+  --gold2:#D9BC7E;
+  --goldpale:#F5EDD8;
+  --cream:#FAF8F4;
+  --offwhite:#FFFEF9;
+  --grey:#8A7D72;
+  --dark:#08160D;
 }
-body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+body{font-family:'Jost',sans-serif;background:var(--cream);color:#1A1A1A;overflow-x:hidden;}
 
-/* TOP BAR */
-.topbar { background: var(--forest); color: #8FB89E; font-size: 10.5px; letter-spacing: 2.5px; text-transform: uppercase; display: flex; justify-content: space-between; align-items: center; padding: 9px 48px; }
-.topbar a { color: #8FB89E; text-decoration: none; transition: color 0.2s; }
-.topbar a:hover { color: var(--gold-light); }
-.topbar-links { display: flex; gap: 32px; }
+/* ─── TOPBAR ─── */
+.topbar{background:var(--forest);color:#8FB89E;font-size:10.5px;letter-spacing:2.5px;text-transform:uppercase;display:flex;justify-content:space-between;align-items:center;padding:9px 48px;}
+.topbar a{color:#8FB89E;text-decoration:none;transition:color .2s;}
+.topbar a:hover{color:var(--gold2);}
+.topbar-left{display:flex;gap:30px;}
 
-/* NAVBAR */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
-.nav-main { display: flex; align-items: center; justify-content: space-between; padding: 0 48px; height: 76px; background: transparent; transition: background 0.4s, box-shadow 0.4s; }
-nav.scrolled .nav-main { background: rgba(13,43,31,0.97); backdrop-filter: blur(16px); box-shadow: 0 4px 40px rgba(0,0,0,0.35); }
-.logo { display: flex; align-items: center; text-decoration: none; }
-.logo-svg { width: 170px; height: 58px; }
-.nav-links { display: flex; gap: 32px; list-style: none; }
-.nav-links a { color: rgba(255,255,255,0.88); text-decoration: none; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 400; transition: color 0.2s; position: relative; padding-bottom: 4px; }
-.nav-links a::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
-.nav-links a:hover { color: var(--gold-light); }
-.nav-links a:hover::after { width: 100%; }
-.nav-cta { background: var(--gold) !important; color: var(--forest) !important; padding: 10px 22px !important; font-weight: 600 !important; }
-.nav-cta::after { display: none !important; }
-.nav-cta:hover { background: var(--gold-light) !important; }
+/* ─── NAVBAR ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:76px;background:transparent;transition:background .4s,box-shadow .4s;}
+nav.scrolled .nav-inner{background:rgba(13,43,31,.97);backdrop-filter:blur(16px);box-shadow:0 4px 40px rgba(0,0,0,.35);}
+.logo{display:flex;align-items:center;text-decoration:none;}
+.logo svg{width:170px;height:58px;}
+.nav-links{display:flex;gap:30px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,.88);text-decoration:none;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:400;transition:color .2s;position:relative;padding-bottom:4px;}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:1px;background:var(--gold);transition:width .3s;}
+.nav-links a:hover{color:var(--gold2);}
+.nav-links a:hover::after{width:100%;}
+.nav-cta{background:var(--gold)!important;color:var(--forest)!important;padding:10px 22px!important;font-weight:700!important;letter-spacing:1.5px!important;}
+.nav-cta::after{display:none!important;}
+.nav-cta:hover{background:var(--gold2)!important;}
 
-/* HERO */
-.hero { position: relative; height: 100vh; min-height: 700px; overflow: hidden; }
-.hero-slides { position: absolute; inset: 0; }
-.hero-slide { position: absolute; inset: 0; opacity: 0; transition: opacity 1.8s ease; }
-.hero-slide.active { opacity: 1; }
-.slide-1 { background: linear-gradient(135deg, #0D2B1F 0%, #1A5C3A 35%, #0A2016 65%, #2D6B47 100%); }
-.slide-2 { background: linear-gradient(160deg, #1A3A28 0%, #0D2B1F 40%, #2A5840 75%, #0A1F14 100%); }
-.slide-3 { background: linear-gradient(120deg, #0A1F14 0%, #2D6B47 40%, #1A3A28 70%, #0D2B1F 100%); }
-.slide-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(198,164,90,0.1) 0%, transparent 60%), radial-gradient(circle at 80% 20%, rgba(198,164,90,0.07) 0%, transparent 50%); }
-.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(13,43,31,0.25) 0%, rgba(13,43,31,0.05) 40%, rgba(13,43,31,0.65) 100%); z-index: 2; }
-.hero-ornament { position: absolute; top: 110px; right: 72px; width: 180px; height: 180px; z-index: 3; opacity: 0.15; }
-.hero-content { position: absolute; z-index: 4; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 90%; max-width: 860px; animation: fadeUp 1.2s ease 0.4s both; }
-@keyframes fadeUp { from { opacity: 0; transform: translate(-50%, calc(-50% + 32px)); } to { opacity: 1; transform: translate(-50%, -50%); } }
-.hero-eyebrow { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 400; margin-bottom: 20px; }
-.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(46px, 7.5vw, 92px); font-weight: 300; color: #fff; line-height: 1.05; margin-bottom: 24px; }
-.hero-title em { font-style: italic; color: var(--gold-light); }
-.hero-subtitle { font-size: 13px; letter-spacing: 3px; color: rgba(255,255,255,0.7); font-weight: 300; margin-bottom: 44px; text-transform: uppercase; }
-.hero-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-.btn-primary { background: var(--gold); color: var(--forest); padding: 14px 38px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 600; text-decoration: none; transition: all 0.3s; font-family: 'Jost', sans-serif; display: inline-block; cursor: pointer; border: none; }
-.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(198,164,90,0.4); }
-.btn-outline { border: 1px solid rgba(255,255,255,0.45); color: #fff; padding: 14px 38px; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; text-decoration: none; transition: all 0.3s; font-family: 'Jost', sans-serif; display: inline-block; }
-.btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-.btn-outline-dark { border: 1px solid rgba(13,43,31,0.4); color: var(--forest); padding: 12px 30px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; text-decoration: none; transition: all 0.3s; font-family: 'Jost', sans-serif; display: inline-block; }
-.btn-outline-dark:hover { background: var(--forest); color: #fff; }
-.hero-dots { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); z-index: 5; display: flex; gap: 10px; }
-.dot { width: 6px; height: 6px; border-radius: 50%; background: rgba(255,255,255,0.35); cursor: pointer; transition: all 0.3s; }
-.dot.active { background: var(--gold); width: 30px; border-radius: 3px; }
-.hero-scroll { position: absolute; bottom: 40px; right: 56px; z-index: 5; display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.45); font-size: 9.5px; letter-spacing: 3px; text-transform: uppercase; animation: scrollBounce 2.2s infinite; }
-@keyframes scrollBounce { 0%,100%{transform:translateY(0)}50%{transform:translateY(7px)} }
-.hero-scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(255,255,255,0.45), transparent); }
+/* ─── HERO ─── */
+.hero{position:relative;height:100vh;min-height:700px;overflow:hidden;}
+.hero-slides{position:absolute;inset:0;}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.8s ease;background-size:cover;background-position:center;}
+.hero-slide.active{opacity:1;}
+.s1{background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=1800&q=85');}
+.s2{background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1800&q=85');}
+.s3{background-image:url('https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=1800&q=85');}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(13,43,31,.5) 0%,rgba(13,43,31,.15) 40%,rgba(13,43,31,.75) 100%);z-index:2;}
+.hero-ornament{position:absolute;top:110px;right:72px;width:160px;height:160px;z-index:3;opacity:.18;}
+.hero-content{position:absolute;z-index:4;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;width:90%;max-width:860px;animation:fadeUp 1.2s ease .4s both;}
+@keyframes fadeUp{from{opacity:0;transform:translate(-50%,calc(-50% + 32px));}to{opacity:1;transform:translate(-50%,-50%);}}
+.eyebrow{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:20px;display:block;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,7.5vw,92px);font-weight:300;color:#fff;line-height:1.05;margin-bottom:24px;}
+.hero-title em{font-style:italic;color:var(--gold2);}
+.hero-sub{font-size:13px;letter-spacing:3px;color:rgba(255,255,255,.72);font-weight:300;margin-bottom:44px;text-transform:uppercase;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--forest);padding:14px 38px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;text-decoration:none;transition:all .3s;font-family:'Jost',sans-serif;display:inline-block;cursor:pointer;border:none;}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(198,164,90,.4);}
+.btn-ghost{border:1px solid rgba(255,255,255,.45);color:#fff;padding:14px 38px;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:400;text-decoration:none;transition:all .3s;font-family:'Jost',sans-serif;display:inline-block;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.btn-dark{border:1px solid rgba(13,43,31,.35);color:var(--forest);padding:12px 30px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;text-decoration:none;transition:all .3s;font-family:'Jost',sans-serif;display:inline-block;}
+.btn-dark:hover{background:var(--forest);color:#fff;}
+.hero-dots{position:absolute;bottom:44px;left:50%;transform:translateX(-50%);z-index:5;display:flex;gap:10px;}
+.dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .3s;}
+.dot.active{background:var(--gold);width:30px;border-radius:3px;}
+.scroll-hint{position:absolute;bottom:40px;right:56px;z-index:5;display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.45);font-size:9.5px;letter-spacing:3px;text-transform:uppercase;animation:bob 2.2s infinite;}
+@keyframes bob{0%,100%{transform:translateY(0);}50%{transform:translateY(7px);}}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,rgba(255,255,255,.45),transparent);}
 
-/* BOOKING BAR */
-.booking-bar { background: var(--forest); padding: 0 48px; display: flex; align-items: stretch; position: relative; z-index: 10; box-shadow: 0 6px 32px rgba(13,43,31,0.45); }
-.booking-field { flex: 1; padding: 22px 28px; border-right: 1px solid rgba(255,255,255,0.08); cursor: pointer; transition: background 0.2s; }
-.booking-field:hover { background: rgba(255,255,255,0.05); }
-.booking-field label { display: block; font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 7px; font-weight: 500; }
-.booking-field select, .booking-field input { background: transparent; border: none; color: rgba(255,255,255,0.85); font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 300; width: 100%; outline: none; cursor: pointer; }
-.booking-field select option { background: var(--forest); color: #fff; }
-.booking-btn { background: var(--gold); color: var(--forest); border: none; padding: 0 48px; font-family: 'Jost', sans-serif; font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
-.booking-btn:hover { background: var(--gold-light); }
+/* ─── BOOKING BAR ─── */
+.booking-bar{background:var(--forest);padding:0 48px;display:flex;align-items:stretch;z-index:10;box-shadow:0 6px 32px rgba(13,43,31,.45);}
+.bf{flex:1;padding:22px 28px;border-right:1px solid rgba(255,255,255,.08);cursor:pointer;transition:background .2s;}
+.bf:hover{background:rgba(255,255,255,.05);}
+.bf label{display:block;font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:7px;font-weight:500;}
+.bf select,.bf input{background:transparent;border:none;color:rgba(255,255,255,.85);font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;width:100%;outline:none;cursor:pointer;}
+.bf select option{background:var(--forest);color:#fff;}
+.book-btn{background:var(--gold);color:var(--forest);border:none;padding:0 48px;font-family:'Jost',sans-serif;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.book-btn:hover{background:var(--gold2);}
 
-/* SECTIONS */
-section { padding: 100px 48px; }
-.section-eyebrow { font-size: 10.5px; letter-spacing: 3.5px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 14px; display: block; }
-.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(34px, 4vw, 56px); font-weight: 300; line-height: 1.12; color: var(--forest); }
-.section-title em { font-style: italic; }
-.section-subtitle { font-size: 15px; color: var(--warm-grey); line-height: 1.85; font-weight: 300; max-width: 600px; }
-.gold-rule { width: 60px; height: 1px; background: var(--gold); margin: 28px 0; }
-.text-center { text-align: center; }
-.text-center .gold-rule { margin: 28px auto; }
-.text-center .section-subtitle { margin: 0 auto; }
+/* ─── SECTIONS ─── */
+section{padding:100px 48px;}
+.sec-eyebrow{font-size:10.5px;letter-spacing:3.5px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:14px;display:block;}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(34px,4vw,56px);font-weight:300;line-height:1.12;color:var(--forest);}
+.sec-title em{font-style:italic;}
+.sec-sub{font-size:15px;color:var(--grey);line-height:1.85;font-weight:300;max-width:600px;}
+.gold-rule{width:60px;height:1px;background:var(--gold);margin:28px 0;}
+.tc{text-align:center;}
+.tc .gold-rule{margin:28px auto;}
+.tc .sec-sub{margin:0 auto;}
 
-/* ABOUT */
-.about-strip { background: var(--warm-white); padding: 90px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: center; }
-.about-img-wrap { position: relative; }
-.about-img-box { width: 100%; height: 500px; background: linear-gradient(145deg, #1A4030 0%, #0D2B1F 50%, #2D6B47 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
-.about-img-box::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 30% 40%, rgba(198,164,90,0.12) 0%, transparent 60%); }
-.about-decor-border { position: absolute; bottom: -18px; right: -18px; width: 180px; height: 180px; border: 2px solid var(--gold); pointer-events: none; }
-.about-badge { position: absolute; top: 24px; left: 24px; background: var(--gold); color: var(--forest); padding: 10px 18px; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; z-index: 2; }
-.stats-row { display: grid; grid-template-columns: repeat(3,1fr); gap: 28px; margin-top: 48px; }
-.stat { border-left: 2px solid var(--gold); padding-left: 20px; }
-.stat-num { font-family: 'Cormorant Garamond', serif; font-size: 44px; font-weight: 300; color: var(--forest); line-height: 1; }
-.stat-label { font-size: 10.5px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-grey); margin-top: 6px; }
+/* ─── ABOUT ─── */
+.about{background:var(--offwhite);padding:90px 48px;display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
+.about-imgwrap{position:relative;}
+.about-photo{width:100%;height:500px;background:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=900&q=85') center/cover no-repeat;position:relative;overflow:hidden;}
+.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(13,43,31,.15),transparent);}
+.about-border{position:absolute;bottom:-18px;right:-18px;width:180px;height:180px;border:2px solid var(--gold);pointer-events:none;}
+.about-badge{position:absolute;top:24px;left:24px;background:var(--gold);color:var(--forest);padding:10px 18px;font-size:10px;letter-spacing:2px;text-transform:uppercase;font-weight:700;z-index:2;}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;}
+.stat{border-left:2px solid var(--gold);padding-left:20px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--forest);line-height:1;}
+.stat-l{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-top:6px;}
 
-/* PROPERTIES */
-.properties { background: var(--cream); }
-.properties-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 56px; }
-.props-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-.prop-card { position: relative; overflow: hidden; cursor: pointer; }
-.prop-img { width: 100%; height: 320px; position: relative; overflow: hidden; }
-.prop-img.tall { height: 420px; }
-.prop-bg { width: 100%; height: 100%; transition: transform 0.7s ease; display: flex; align-items: center; justify-content: center; }
-.prop-card:hover .prop-bg { transform: scale(1.06); }
-.prop-grad-1 { background: linear-gradient(145deg,#1A3A28,#0D2B1F,#2D5A3A); }
-.prop-grad-2 { background: linear-gradient(135deg,#0A2016,#1A4030,#3D7A50); }
-.prop-grad-3 { background: linear-gradient(160deg,#2A5840,#1A3A28,#0A2016); }
-.prop-grad-4 { background: linear-gradient(120deg,#3D7A50,#1A4030,#0A2016); }
-.prop-grad-5 { background: linear-gradient(145deg,#0D2B1F,#2D6B47,#1A3A28); }
-.prop-grad-6 { background: linear-gradient(135deg,#1A4030,#0A2016,#2A5840); }
-.prop-inner-glow { position: absolute; inset: 0; background: radial-gradient(circle at 40% 55%, rgba(198,164,90,0.14) 0%, transparent 55%); }
-.prop-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,43,31,0.88) 0%, rgba(13,43,31,0.08) 60%, transparent 100%); transition: background 0.4s; }
-.prop-card:hover .prop-overlay { background: linear-gradient(to top, rgba(13,43,31,0.95) 0%, rgba(13,43,31,0.28) 60%, transparent 100%); }
-.prop-badge { position: absolute; top: 20px; left: 20px; background: var(--gold); color: var(--forest); font-size: 9px; letter-spacing: 2px; text-transform: uppercase; padding: 5px 12px; font-weight: 700; z-index: 3; }
-.prop-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 28px; color: #fff; transform: translateY(28px); transition: transform 0.4s ease; z-index: 2; }
-.prop-card:hover .prop-info { transform: translateY(0); }
-.prop-loc { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold-light); margin-bottom: 6px; }
-.prop-name { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 400; margin-bottom: 10px; }
-.prop-desc { font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6; font-weight: 300; opacity: 0; transition: opacity 0.35s 0.05s; }
-.prop-card:hover .prop-desc { opacity: 1; }
-.prop-link { display: inline-flex; align-items: center; gap: 8px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold-light); text-decoration: none; margin-top: 14px; font-weight: 500; opacity: 0; transition: opacity 0.35s 0.1s; }
-.prop-card:hover .prop-link { opacity: 1; }
-.prop-link::after { content: '→'; }
+/* ─── APARTMENTS ─── */
+.apartments{background:var(--cream);}
+.apts-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;}
+.apts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.apt-card{position:relative;overflow:hidden;cursor:pointer;}
+.apt-img{width:100%;height:320px;position:relative;overflow:hidden;}
+.apt-img.tall{height:420px;}
+.apt-photo{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .7s ease;}
+.apt-card:hover .apt-photo{transform:scale(1.06);}
+.apt-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,8,.92) 0%,rgba(5,15,8,.2) 55%,transparent 100%);transition:background .4s;}
+.apt-card:hover .apt-overlay{background:linear-gradient(to top,rgba(5,15,8,.96) 0%,rgba(5,15,8,.4) 65%,rgba(5,15,8,.08) 100%);}
+.apt-badge{position:absolute;top:20px;left:20px;background:var(--gold);color:var(--forest);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;font-weight:700;z-index:3;}
+.apt-info{position:absolute;bottom:0;left:0;right:0;padding:28px;color:#fff;transform:translateY(28px);transition:transform .4s ease;z-index:2;}
+.apt-card:hover .apt-info{transform:translateY(0);}
+.apt-loc{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold2);margin-bottom:6px;}
+.apt-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:400;margin-bottom:10px;}
+.apt-desc{font-size:13px;color:rgba(255,255,255,.7);line-height:1.6;font-weight:300;opacity:0;transition:opacity .35s .05s;}
+.apt-card:hover .apt-desc{opacity:1;}
+.apt-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);text-decoration:none;margin-top:14px;font-weight:500;opacity:0;transition:opacity .35s .1s;}
+.apt-card:hover .apt-link{opacity:1;}
+.apt-link::after{content:'→';}
 
-/* OFFERS */
-.offers { background: var(--forest); padding: 100px 48px; }
-.offers .section-title { color: #fff; }
-.offers .section-subtitle { color: rgba(255,255,255,0.55); }
-.offers-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; margin-top: 56px; }
-.offer-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(198,164,90,0.14); padding: 32px 26px; transition: all 0.3s; cursor: pointer; position: relative; overflow: hidden; }
-.offer-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
-.offer-card:hover { background: rgba(255,255,255,0.09); transform: translateY(-5px); }
-.offer-card:hover::before { transform: scaleX(1); }
-.offer-tag { font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 14px; display: block; }
-.offer-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; color: #fff; line-height: 1.3; margin-bottom: 14px; }
-.offer-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.7; font-weight: 300; margin-bottom: 22px; }
-.offer-price { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 300; color: var(--gold-light); }
-.offer-price span { font-size: 12px; color: rgba(255,255,255,0.38); font-family: 'Jost', sans-serif; }
-.offer-book { display: block; margin-top: 20px; text-align: center; padding: 10px; border: 1px solid rgba(198,164,90,0.3); color: var(--gold-light); font-size: 10px; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; transition: all 0.2s; font-weight: 500; }
-.offer-book:hover { background: var(--gold); color: var(--forest); border-color: var(--gold); }
+/* ─── GALLERY STRIP ─── */
+.gallery{background:var(--forest);padding:80px 48px;}
+.gallery .sec-title{color:#fff;}
+.gallery-grid{display:grid;grid-template-columns:1fr 2fr 2fr 1fr;gap:12px;height:520px;margin-top:48px;}
+.gcol{display:flex;flex-direction:column;gap:12px;}
+.gitem{position:relative;overflow:hidden;cursor:pointer;flex:1;}
+.gitem.tall{height:100%;}
+.gitem-photo{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .6s ease;}
+.gitem:hover .gitem-photo{transform:scale(1.06);}
+.gitem-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,8,.65) 0%,transparent 55%);transition:background .3s;}
+.gitem:hover .gitem-overlay{background:linear-gradient(to top,rgba(5,15,8,.45) 0%,transparent 65%);}
+.gitem-label{position:absolute;bottom:16px;left:18px;z-index:2;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.88);font-weight:500;}
 
-/* EXPERIENCES */
-.experiences { background: var(--cream); }
-.exp-tabs { display: flex; gap: 0; margin: 48px 0; border-bottom: 1px solid rgba(13,43,31,0.14); overflow-x: auto; }
-.exp-tab { padding: 14px 28px; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; font-weight: 500; color: var(--warm-grey); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.2s; }
-.exp-tab.active { color: var(--forest); border-color: var(--gold); }
-.exp-tab:hover { color: var(--forest); }
-.exp-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
-.exp-card { background: var(--warm-white); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
-.exp-card:hover { transform: translateY(-6px); box-shadow: 0 20px 56px rgba(13,43,31,0.12); }
-.exp-img { height: 220px; overflow: hidden; position: relative; }
-.exp-bg { width: 100%; height: 100%; transition: transform 0.6s; display: flex; align-items: center; justify-content: center; }
-.exp-card:hover .exp-bg { transform: scale(1.05); }
-.exp-glow { position: absolute; inset: 0; background: radial-gradient(circle at 35% 55%, rgba(198,164,90,0.13) 0%, transparent 50%); pointer-events: none; }
-.exp-bg-1{background:linear-gradient(135deg,#1A3A28,#0D2B1F,#2D5A3A);}
-.exp-bg-2{background:linear-gradient(145deg,#2A5840,#1A3A28,#0A2016);}
-.exp-bg-3{background:linear-gradient(120deg,#0D2B1F,#3D7A50,#1A4030);}
-.exp-bg-4{background:linear-gradient(160deg,#3D7A50,#1A3A28,#0D2B1F);}
-.exp-bg-5{background:linear-gradient(135deg,#0A2016,#2D6B47,#1A4030);}
-.exp-bg-6{background:linear-gradient(145deg,#1A4030,#0D2B1F,#2A5840);}
-.exp-body { padding: 28px 24px; }
-.exp-cat { font-size: 9.5px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
-.exp-title { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 400; color: var(--forest); margin-bottom: 10px; line-height: 1.3; }
-.exp-text { font-size: 13px; color: var(--warm-grey); line-height: 1.75; font-weight: 300; }
-.exp-learn { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--forest); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--gold); padding-bottom: 2px; transition: color 0.2s; }
-.exp-learn:hover { color: var(--gold); }
+/* ─── OFFERS ─── */
+.offers{background:var(--forest);padding:100px 48px;}
+.offers .sec-title{color:#fff;}
+.offers .sec-sub{color:rgba(255,255,255,.55);}
+.offers .gold-rule{background:var(--gold);}
+.offers-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px;}
+.offer{background:rgba(255,255,255,.05);border:1px solid rgba(198,164,90,.14);padding:32px 26px;transition:all .3s;cursor:pointer;position:relative;overflow:hidden;}
+.offer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s;transform-origin:left;}
+.offer:hover{background:rgba(255,255,255,.09);transform:translateY(-5px);}
+.offer:hover::before{transform:scaleX(1);}
+.offer-tag{font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:14px;display:block;}
+.offer-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:#fff;line-height:1.3;margin-bottom:14px;}
+.offer-text{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300;margin-bottom:22px;}
+.offer-price{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:var(--gold2);}
+.offer-price span{font-size:12px;color:rgba(255,255,255,.38);font-family:'Jost',sans-serif;}
+.offer-book{display:block;margin-top:20px;text-align:center;padding:10px;border:1px solid rgba(198,164,90,.3);color:var(--gold2);font-size:10px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;transition:all .2s;font-weight:500;}
+.offer-book:hover{background:var(--gold);color:var(--forest);border-color:var(--gold);}
 
-/* SUSTAINABILITY */
-.sustain { background: var(--gold-pale); padding: 88px 48px; display: grid; grid-template-columns: auto 1fr; gap: 88px; align-items: center; }
-.sustain-big { font-family: 'Cormorant Garamond', serif; font-size: 70px; font-weight: 300; color: var(--forest); line-height: 1.0; border-right: 1px solid var(--gold); padding-right: 88px; white-space: nowrap; }
-.sustain-big em { font-style: italic; display: block; }
-.sustain-content .section-title { font-size: 38px; }
-.sustain-points { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 36px; }
-.s-point { display: flex; gap: 14px; align-items: flex-start; }
-.s-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
-.s-text { font-size: 14px; color: #4A4A4A; line-height: 1.65; }
+/* ─── AMENITIES ─── */
+.amenities{background:var(--cream);}
+.amen-tabs{display:flex;gap:0;margin:48px 0;border-bottom:1px solid rgba(13,43,31,.14);overflow-x:auto;}
+.tab{padding:14px 28px;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:500;color:var(--grey);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap;transition:all .2s;}
+.tab.active{color:var(--forest);border-color:var(--gold);}
+.tab:hover{color:var(--forest);}
+.amen-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.amen-card{background:var(--offwhite);overflow:hidden;transition:transform .3s,box-shadow .3s;}
+.amen-card:hover{transform:translateY(-6px);box-shadow:0 20px 56px rgba(13,43,31,.12);}
+.amen-img{height:220px;overflow:hidden;position:relative;}
+.amen-photo{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .6s;}
+.amen-card:hover .amen-photo{transform:scale(1.05);}
+.amen-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,8,.4),transparent 50%);}
+.amen-body{padding:28px 24px;}
+.amen-cat{font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:10px;}
+.amen-title{font-family:'Cormorant Garamond',serif;font-size:23px;font-weight:400;color:var(--forest);margin-bottom:10px;line-height:1.3;}
+.amen-text{font-size:13px;color:var(--grey);line-height:1.75;font-weight:300;}
+.amen-learn{display:inline-flex;align-items:center;gap:6px;margin-top:18px;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--forest);text-decoration:none;font-weight:500;border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color .2s;}
+.amen-learn:hover{color:var(--gold);}
 
-/* NEWS */
-.news { background: var(--warm-white); }
-.news-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 36px; margin-top: 56px; }
-.news-card { cursor: pointer; }
-.news-img-box { height: 210px; overflow: hidden; margin-bottom: 26px; }
-.news-bg { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; transition: transform 0.5s; }
-.news-card:hover .news-bg { transform: scale(1.04); }
-.news-bg-1{background:linear-gradient(135deg,#1A3A28,#0D2B1F);}
-.news-bg-2{background:linear-gradient(145deg,#2A5840,#1A3A28);}
-.news-bg-3{background:linear-gradient(120deg,#0D2B1F,#3D7A50);}
-.news-date { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 10px; }
-.news-title { font-family: 'Cormorant Garamond', serif; font-size: 23px; font-weight: 400; color: var(--forest); line-height: 1.35; margin-bottom: 12px; }
-.news-snippet { font-size: 13px; color: var(--warm-grey); line-height: 1.75; font-weight: 300; }
-.news-read { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--forest); text-decoration: none; font-weight: 500; border-bottom: 1px solid var(--gold); padding-bottom: 2px; }
-.news-read:hover { color: var(--gold); }
+/* ─── SUPERHOST STRIP ─── */
+.superhost{background:var(--goldpale);padding:80px 48px;display:grid;grid-template-columns:auto 1fr;gap:80px;align-items:center;}
+.sh-big{font-family:'Cormorant Garamond',serif;font-size:64px;font-weight:300;color:var(--forest);line-height:1;border-right:1px solid var(--gold);padding-right:80px;white-space:nowrap;}
+.sh-big em{font-style:italic;display:block;}
+.sh-content .sec-title{font-size:38px;}
+.sh-points{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px;}
+.shp{display:flex;gap:14px;align-items:flex-start;}
+.shp-dot{width:8px;height:8px;background:var(--gold);border-radius:50%;flex-shrink:0;margin-top:6px;}
+.shp-text{font-size:14px;color:#4A4A4A;line-height:1.65;}
 
-/* LOYALTY */
-.loyalty { background: linear-gradient(135deg, var(--forest) 0%, #1A4030 55%, #0A2016 100%); padding: 100px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-.loyalty .section-title { color: #fff; }
-.loyalty .section-subtitle { color: rgba(255,255,255,0.55); }
-.loyalty .gold-rule { background: var(--gold); }
-.perks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
-.perk { border: 1px solid rgba(198,164,90,0.18); padding: 24px 20px; transition: border-color 0.3s; }
-.perk:hover { border-color: var(--gold); }
-.perk-icon { font-size: 22px; margin-bottom: 12px; }
-.perk-title { font-family: 'Cormorant Garamond', serif; font-size: 19px; font-weight: 400; color: var(--gold-light); margin-bottom: 8px; }
-.perk-text { font-size: 12px; color: rgba(255,255,255,0.48); line-height: 1.65; }
-.join-box { background: rgba(255,255,255,0.05); border: 1px solid rgba(198,164,90,0.22); padding: 56px 48px; text-align: center; }
-.join-title { font-family: 'Cormorant Garamond', serif; font-size: 46px; font-weight: 300; color: #fff; margin-bottom: 8px; }
-.join-sub { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 36px; }
-.join-box input { width: 100%; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); padding: 14px 20px; font-family: 'Jost', sans-serif; font-size: 13px; color: #fff; outline: none; margin-bottom: 12px; transition: border-color 0.2s; }
-.join-box input:focus { border-color: var(--gold); }
-.join-box input::placeholder { color: rgba(255,255,255,0.32); }
-.join-box button { width: 100%; background: var(--gold); border: none; padding: 15px; font-family: 'Jost', sans-serif; font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 700; color: var(--forest); cursor: pointer; transition: background 0.2s; margin-top: 4px; }
-.join-box button:hover { background: var(--gold-light); }
-.join-note { font-size: 11px; color: rgba(255,255,255,0.28); margin-top: 16px; line-height: 1.6; }
+/* ─── REVIEWS ─── */
+.reviews{background:var(--offwhite);}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:56px;}
+.review-card{cursor:pointer;}
+.review-imgbox{height:220px;overflow:hidden;margin-bottom:26px;position:relative;}
+.review-imgbox::after{content:'★★★★★';position:absolute;bottom:14px;left:18px;font-size:15px;color:var(--gold);letter-spacing:3px;z-index:2;}
+.review-photo{width:100%;height:100%;background-size:cover;background-position:center;transition:transform .5s;}
+.review-card:hover .review-photo{transform:scale(1.04);}
+.review-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,15,8,.6),transparent 50%);}
+.review-date{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:10px;}
+.review-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;color:var(--forest);line-height:1.35;margin-bottom:12px;}
+.review-text{font-size:13px;color:var(--grey);line-height:1.75;font-weight:300;margin-bottom:14px;}
+.review-author{font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--grey);font-weight:500;}
 
-/* FOOTER */
-footer { background: #08160D; color: rgba(255,255,255,0.5); padding: 80px 48px 40px; }
-.footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 56px; padding-bottom: 64px; border-bottom: 1px solid rgba(255,255,255,0.07); }
-.footer-brand-text { font-size: 13px; line-height: 1.85; font-weight: 300; margin: 20px 0 28px; }
-.footer-social { display: flex; gap: 12px; }
-.footer-social a { width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.14); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.45); text-decoration: none; font-size: 12px; font-weight: 600; transition: all 0.2s; }
-.footer-social a:hover { border-color: var(--gold); color: var(--gold); }
-.awards-strip { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
-.award { background: rgba(255,255,255,0.04); border: 1px solid rgba(198,164,90,0.14); padding: 7px 14px; font-size: 9.5px; letter-spacing: 1.5px; text-transform: uppercase; color: var(--gold); }
-.footer-col h4 { font-size: 10px; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 24px; }
-.footer-col ul { list-style: none; }
-.footer-col li { margin-bottom: 10px; }
-.footer-col a { color: rgba(255,255,255,0.48); text-decoration: none; font-size: 13px; font-weight: 300; transition: color 0.2s; }
-.footer-col a:hover { color: var(--gold-light); }
-.footer-contact p { font-size: 13px; line-height: 1.8; margin-bottom: 5px; font-weight: 300; }
-.footer-contact strong { color: rgba(255,255,255,0.7); font-weight: 400; }
-.footer-contact a { color: rgba(255,255,255,0.48); text-decoration: none; transition: color 0.2s; }
-.footer-contact a:hover { color: var(--gold-light); }
-.footer-bottom { padding-top: 36px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; font-size: 11px; letter-spacing: 0.5px; }
-.footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
-.footer-links a { color: rgba(255,255,255,0.32); text-decoration: none; font-size: 11px; transition: color 0.2s; }
-.footer-links a:hover { color: var(--gold); }
+/* ─── GUEST PERKS ─── */
+.perks-section{background:linear-gradient(135deg,var(--forest) 0%,#1A4030 55%,#0A2016 100%);padding:100px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
+.perks-section .sec-title{color:#fff;}
+.perks-section .sec-sub{color:rgba(255,255,255,.55);}
+.perks-section .gold-rule{background:var(--gold);}
+.perks-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px;}
+.perk{border:1px solid rgba(198,164,90,.18);padding:24px 20px;transition:border-color .3s;}
+.perk:hover{border-color:var(--gold);}
+.perk-icon{font-size:22px;margin-bottom:12px;}
+.perk-title{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;color:var(--gold2);margin-bottom:8px;}
+.perk-text{font-size:12px;color:rgba(255,255,255,.48);line-height:1.65;}
+.join-box{background:rgba(255,255,255,.05);border:1px solid rgba(198,164,90,.22);padding:52px 44px;text-align:center;}
+.join-title{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:#fff;margin-bottom:8px;}
+.join-sub{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:36px;}
+.join-box input{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:14px 20px;font-family:'Jost',sans-serif;font-size:13px;color:#fff;outline:none;margin-bottom:12px;transition:border-color .2s;}
+.join-box input:focus{border-color:var(--gold);}
+.join-box input::placeholder{color:rgba(255,255,255,.32);}
+.join-box button{width:100%;background:var(--gold);border:none;padding:15px;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;color:var(--forest);cursor:pointer;transition:background .2s;margin-top:4px;}
+.join-box button:hover{background:var(--gold2);}
+.join-note{font-size:11px;color:rgba(255,255,255,.28);margin-top:16px;line-height:1.6;}
 
-/* REVEAL */
-.reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.75s ease, transform 0.75s ease; }
-.reveal.visible { opacity: 1; transform: none; }
+/* ─── FOOTER ─── */
+footer{background:var(--dark);color:rgba(255,255,255,.5);padding:80px 48px 40px;}
+.ft-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:56px;padding-bottom:64px;border-bottom:1px solid rgba(255,255,255,.07);}
+.ft-brand-text{font-size:13px;line-height:1.85;font-weight:300;margin:20px 0 28px;}
+.ft-social{display:flex;gap:12px;}
+.ft-social a{width:36px;height:36px;border:1px solid rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.45);text-decoration:none;font-size:12px;font-weight:600;transition:all .2s;}
+.ft-social a:hover{border-color:var(--gold);color:var(--gold);}
+.ft-awards{display:flex;gap:16px;flex-wrap:wrap;margin-top:28px;}
+.ft-award{background:rgba(255,255,255,.04);border:1px solid rgba(198,164,90,.14);padding:7px 14px;font-size:9.5px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);}
+.ft-col h4{font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:24px;}
+.ft-col ul{list-style:none;}
+.ft-col li{margin-bottom:10px;}
+.ft-col a{color:rgba(255,255,255,.48);text-decoration:none;font-size:13px;font-weight:300;transition:color .2s;}
+.ft-col a:hover{color:var(--gold2);}
+.ft-contact p{font-size:13px;line-height:1.8;margin-bottom:5px;font-weight:300;}
+.ft-contact strong{color:rgba(255,255,255,.7);font-weight:400;}
+.ft-bottom{padding-top:36px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:11px;}
+.ft-links{display:flex;gap:28px;flex-wrap:wrap;}
+.ft-links a{color:rgba(255,255,255,.32);text-decoration:none;font-size:11px;transition:color .2s;}
+.ft-links a:hover{color:var(--gold);}
 
-/* RESPONSIVE */
+/* ─── REVEAL ─── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease;}
+.reveal.visible{opacity:1;transform:none;}
+
+/* ─── RESPONSIVE ─── */
 @media(max-width:1100px){
-  .about-strip,.loyalty{grid-template-columns:1fr;gap:48px;}
-  .props-grid,.offers-grid{grid-template-columns:1fr 1fr;}
-  .footer-grid{grid-template-columns:1fr 1fr;}
-  .sustain{grid-template-columns:1fr;gap:40px;}
-  .sustain-big{border-right:none;border-bottom:1px solid var(--gold);padding:0 0 28px 0;font-size:52px;}
+  .about,.perks-section{grid-template-columns:1fr;gap:48px;}
+  .apts-grid,.offers-grid{grid-template-columns:1fr 1fr;}
+  .ft-grid{grid-template-columns:1fr 1fr;}
+  .superhost{grid-template-columns:1fr;gap:40px;}
+  .sh-big{border-right:none;border-bottom:1px solid var(--gold);padding:0 0 28px 0;font-size:52px;}
+  .gallery-grid{grid-template-columns:1fr 1fr;height:auto;}
+  .gitem.tall,.gitem{height:220px;}
+  .gcol{flex-direction:row;}
 }
 @media(max-width:768px){
   section{padding:60px 24px;}
-  .topbar,.nav-main,.booking-bar{padding-left:24px;padding-right:24px;}
-  .topbar-links{display:none;}
+  .topbar,.nav-inner{padding-left:24px;padding-right:24px;}
+  .topbar-left{display:none;}
   .nav-links{display:none;}
   .booking-bar{flex-direction:column;padding:0;}
-  .booking-field{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08);}
-  .booking-btn{padding:18px 24px;}
-  .props-grid,.exp-grid,.news-grid,.offers-grid{grid-template-columns:1fr;}
-  .about-strip{padding:60px 24px;}
-  .footer-grid{grid-template-columns:1fr;gap:32px;}
-  .loyalty,.sustain{padding:60px 24px;}
-  .perks-grid,.sustain-points{grid-template-columns:1fr;}
+  .bf{border-right:none;border-bottom:1px solid rgba(255,255,255,.08);}
+  .book-btn{padding:18px 24px;}
+  .apts-grid,.amen-grid,.reviews-grid,.offers-grid{grid-template-columns:1fr;}
+  .about{padding:60px 24px;}
+  .perks-section,.superhost{padding:60px 24px;}
+  .gallery{padding:60px 24px;}
+  .gallery-grid{grid-template-columns:1fr 1fr;height:auto;}
+  .gitem,.gitem.tall{height:180px;}
+  .gcol{flex-direction:column;}
+  .ft-grid{grid-template-columns:1fr;gap:32px;}
+  .sh-points,.perks-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- TOP BAR -->
+<!-- TOPBAR -->
 <div class="topbar">
-  <div class="topbar-links">
-    <a href="#">Sustainability</a>
-    <a href="#">Press Centre</a>
-    <a href="#">Awards</a>
-    <a href="#">Corporate</a>
-    <a href="#">Concierge</a>
+  <div class="topbar-left">
+    <a href="#">How It Works</a>
+    <a href="#">Airbnb Listings</a>
+    <a href="#">House Rules</a>
+    <a href="#">Corporate Stays</a>
+    <a href="#">Contact Host</a>
   </div>
-  <div>
-    <a href="#">EN</a>
-  </div>
+  <a href="#">EN</a>
 </div>
 
 <!-- NAVBAR -->
 <nav id="navbar">
-  <div class="nav-main">
+  <div class="nav-inner">
     <a href="#" class="logo">
-      <svg class="logo-svg" viewBox="0 0 210 62" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M22 36L22 49L40 49L40 36" stroke="#C6A45A" stroke-width="2.2" fill="none"/>
+      <svg viewBox="0 0 210 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22 36L22 50L40 50L40 36" stroke="#C6A45A" stroke-width="2.2" fill="none"/>
         <path d="M15 36L31 20L47 36" stroke="#C6A45A" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
         <rect x="27" y="27" width="8" height="8" fill="#C6A45A" opacity="0.75"/>
         <line x1="47" y1="29" x2="70" y2="29" stroke="#C6A45A" stroke-width="2.2"/>
@@ -305,16 +306,16 @@ footer { background: #08160D; color: rgba(255,255,255,0.5); padding: 80px 48px 4
         <line x1="59" y1="29" x2="59" y2="34" stroke="#C6A45A" stroke-width="2"/>
         <line x1="64" y1="29" x2="64" y2="33" stroke="#C6A45A" stroke-width="2"/>
         <text x="18" y="57" font-family="Georgia,'Times New Roman',serif" font-size="14" font-weight="600" letter-spacing="5.5" fill="#C6A45A">IVYROSE</text>
-        <text x="19" y="64" font-family="Arial,sans-serif" font-size="6.2" letter-spacing="3.8" fill="rgba(198,164,90,0.6)">LUXURY APARTMENTS</text>
+        <text x="19" y="65" font-family="Arial,sans-serif" font-size="6.2" letter-spacing="3.8" fill="rgba(198,164,90,0.6)">LUXURY APARTMENTS</text>
       </svg>
     </a>
     <ul class="nav-links">
-      <li><a href="#properties">Properties</a></li>
-      <li><a href="#offers">Offers</a></li>
-      <li><a href="#experiences">Experiences</a></li>
-      <li><a href="#meetings">Meetings</a></li>
-      <li><a href="#membership">Membership</a></li>
-      <li><a href="#contact" class="nav-cta">Book Now</a></li>
+      <li><a href="#apartments">Apartments</a></li>
+      <li><a href="#offers">Deals</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#perks">Guest Perks</a></li>
+      <li><a href="#contact" class="nav-cta">Book on Airbnb</a></li>
     </ul>
   </div>
 </nav>
@@ -322,468 +323,489 @@ footer { background: #08160D; color: rgba(255,255,255,0.5); padding: 80px 48px 4
 <!-- HERO -->
 <section class="hero" style="padding:0;">
   <div class="hero-slides">
-    <div class="hero-slide slide-1 active"><div class="slide-pattern"></div></div>
-    <div class="hero-slide slide-2"><div class="slide-pattern"></div></div>
-    <div class="hero-slide slide-3"><div class="slide-pattern"></div></div>
+    <div class="hero-slide s1 active"></div>
+    <div class="hero-slide s2"></div>
+    <div class="hero-slide s3"></div>
   </div>
   <div class="hero-overlay"></div>
-
-  <!-- Decorative ring ornament -->
-  <svg class="hero-ornament" viewBox="0 0 180 180" fill="none">
-    <circle cx="90" cy="90" r="82" stroke="#C6A45A" stroke-width="0.8"/>
-    <circle cx="90" cy="90" r="62" stroke="#C6A45A" stroke-width="0.4"/>
-    <path d="M90 8 L172 90 L90 172 L8 90 Z" stroke="#C6A45A" stroke-width="0.7"/>
-    <circle cx="90" cy="90" r="26" stroke="#C6A45A" stroke-width="0.4"/>
-    <circle cx="90" cy="8" r="2" fill="#C6A45A"/>
-    <circle cx="172" cy="90" r="2" fill="#C6A45A"/>
-    <circle cx="90" cy="172" r="2" fill="#C6A45A"/>
-    <circle cx="8" cy="90" r="2" fill="#C6A45A"/>
+  <svg class="hero-ornament" viewBox="0 0 160 160" fill="none">
+    <circle cx="80" cy="80" r="74" stroke="#C6A45A" stroke-width="0.8"/>
+    <circle cx="80" cy="80" r="55" stroke="#C6A45A" stroke-width="0.4"/>
+    <path d="M80 6 L154 80 L80 154 L6 80 Z" stroke="#C6A45A" stroke-width="0.7"/>
+    <circle cx="80" cy="80" r="22" stroke="#C6A45A" stroke-width="0.4"/>
+    <circle cx="80" cy="6" r="2" fill="#C6A45A"/>
+    <circle cx="154" cy="80" r="2" fill="#C6A45A"/>
+    <circle cx="80" cy="154" r="2" fill="#C6A45A"/>
+    <circle cx="6" cy="80" r="2" fill="#C6A45A"/>
   </svg>
-
   <div class="hero-content">
-    <p class="hero-eyebrow">Welcome to IvyRose</p>
-    <h1 class="hero-title">Where Luxury<br><em>Meets Home</em></h1>
-    <p class="hero-subtitle">Exclusive Residences &amp; Serviced Apartments</p>
+    <span class="eyebrow">IvyRose Luxury Apartments</span>
+    <h1 class="hero-title">Your Home<br><em>Away From Home</em></h1>
+    <p class="hero-sub">Premium Short-Stay &amp; Airbnb Apartments in Uganda</p>
     <div class="hero-btns">
-      <a href="#properties" class="btn-primary">Explore Properties</a>
-      <a href="#offers" class="btn-outline">View Offers</a>
+      <a href="#apartments" class="btn-gold">View Apartments</a>
+      <a href="#offers" class="btn-ghost">See Current Deals</a>
     </div>
   </div>
-
   <div class="hero-dots">
     <div class="dot active" onclick="goSlide(0)"></div>
     <div class="dot" onclick="goSlide(1)"></div>
     <div class="dot" onclick="goSlide(2)"></div>
   </div>
-  <div class="hero-scroll">
-    <div class="hero-scroll-line"></div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
     <span>Scroll</span>
   </div>
 </section>
 
 <!-- BOOKING BAR -->
 <div class="booking-bar">
-  <div class="booking-field">
-    <label>Property</label>
+  <div class="bf">
+    <label>Apartment</label>
     <select>
-      <option>Select Property</option>
-      <option>Kololo Heights</option>
-      <option>Nakasero Suites</option>
-      <option>Muyenga Ridge</option>
-      <option>Entebbe Lake Residences</option>
-      <option>Business Suites</option>
-      <option>IvyRose Nile View</option>
+      <option>Select Apartment</option>
+      <option>Kololo Heights — 3 Bed Penthouse</option>
+      <option>Kololo Heights — 2 Bed Suite</option>
+      <option>Nakasero Studio Suite</option>
+      <option>Muyenga Ridge — Lake View 2 Bed</option>
+      <option>Entebbe Garden Apartment</option>
+      <option>IvyRose Executive Studio</option>
+      <option>Nile View Villa — Jinja</option>
     </select>
   </div>
-  <div class="booking-field">
+  <div class="bf">
     <label>Check In</label>
     <input type="text" placeholder="DD / MM / YYYY" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
   </div>
-  <div class="booking-field">
+  <div class="bf">
     <label>Check Out</label>
     <input type="text" placeholder="DD / MM / YYYY" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'">
   </div>
-  <div class="booking-field">
+  <div class="bf">
     <label>Guests</label>
     <select>
       <option>1 Guest</option>
       <option>2 Guests</option>
       <option>3 Guests</option>
-      <option>4+ Guests</option>
+      <option>4 Guests</option>
+      <option>5+ Guests</option>
     </select>
   </div>
-  <button class="booking-btn">Check Availability</button>
+  <button class="book-btn">Check Availability</button>
 </div>
 
 <!-- ABOUT -->
-<div class="about-strip reveal" id="about">
-  <div class="about-img-wrap">
-    <div class="about-img-box">
-      <svg width="110" height="110" viewBox="0 0 110 110" fill="none" opacity="0.22">
-        <path d="M55 8L102 48V102H8V48Z" stroke="#C6A45A" stroke-width="2" fill="none"/>
-        <rect x="40" y="68" width="30" height="34" fill="none" stroke="#C6A45A" stroke-width="1.5"/>
-        <rect x="14" y="54" width="22" height="22" fill="none" stroke="#C6A45A" stroke-width="1.5"/>
-        <rect x="74" y="54" width="22" height="22" fill="none" stroke="#C6A45A" stroke-width="1.5"/>
-        <path d="M55 8L55 0" stroke="#C6A45A" stroke-width="1.5"/>
-        <circle cx="55" cy="0" r="3.5" fill="#C6A45A"/>
-        <line x1="8" y1="102" x2="102" y2="102" stroke="#C6A45A" stroke-width="1.5"/>
-      </svg>
-      <div class="prop-inner-glow"></div>
-    </div>
-    <div class="about-decor-border"></div>
-    <span class="about-badge">Est. 2018</span>
+<div class="about reveal" id="about">
+  <div class="about-imgwrap">
+    <div class="about-photo"></div>
+    <div class="about-border"></div>
+    <span class="about-badge">Airbnb Superhost ★4.9</span>
   </div>
   <div>
-    <span class="section-eyebrow">Our Story</span>
-    <h2 class="section-title">Redefining <em>Luxury Living</em><br>in East Africa</h2>
+    <span class="sec-eyebrow">About IvyRose</span>
+    <h2 class="sec-title">Kampala's Finest<br><em>Short-Stay Apartments</em></h2>
     <div class="gold-rule"></div>
-    <p class="section-subtitle">IvyRose Luxury Apartments offers an unparalleled collection of serviced residences, designed for discerning travellers and long-stay guests who demand the finest in comfort, design, and personalised service.</p>
-    <p class="section-subtitle" style="margin-top:18px;">Each IvyRose residence is a curated sanctuary — where architectural beauty, impeccable interiors, and attentive hospitality converge to create an experience unlike any other.</p>
-    <div class="stats-row">
-      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Properties</div></div>
-      <div class="stat"><div class="stat-num">4</div><div class="stat-label">Cities</div></div>
-      <div class="stat"><div class="stat-num">6+</div><div class="stat-label">Years of Excellence</div></div>
+    <p class="sec-sub">IvyRose offers a handpicked collection of fully furnished, self-catering luxury apartments available on Airbnb for short stays, weekend escapes, and extended visits across Uganda.</p>
+    <p class="sec-sub" style="margin-top:18px;">Every apartment is professionally managed, impeccably maintained, and designed to feel like your own private home — with all the luxury touches you deserve. Fully equipped kitchens, high-speed Wi-Fi, premium linen, and 24/7 guest support included as standard.</p>
+    <div class="stats">
+      <div class="stat"><div class="stat-n">12+</div><div class="stat-l">Airbnb Listings</div></div>
+      <div class="stat"><div class="stat-n">4.9★</div><div class="stat-l">Guest Rating</div></div>
+      <div class="stat"><div class="stat-n">500+</div><div class="stat-l">Happy Guests</div></div>
     </div>
   </div>
 </div>
 
-<!-- PROPERTIES -->
-<section class="properties reveal" id="properties">
-  <div class="properties-header">
+<!-- APARTMENTS -->
+<section class="apartments reveal" id="apartments">
+  <div class="apts-header">
     <div>
-      <span class="section-eyebrow">Find Your Residence</span>
-      <h2 class="section-title">Our <em>Properties</em></h2>
+      <span class="sec-eyebrow">Our Airbnb Listings</span>
+      <h2 class="sec-title">Find Your <em>Perfect Stay</em></h2>
     </div>
-    <a href="#" class="btn-outline-dark">View All Properties</a>
+    <a href="https://airbnb.com" target="_blank" class="btn-dark">View All on Airbnb</a>
   </div>
-  <div class="props-grid">
+  <div class="apts-grid">
 
-    <div class="prop-card">
-      <div class="prop-img tall">
-        <div class="prop-bg prop-grad-1">
-          <div class="prop-inner-glow" style="position:absolute;inset:0;"></div>
-          <svg width="80" height="80" viewBox="0 0 80 80" fill="none" opacity="0.2"><path d="M40 6L74 34V74H6V34Z" stroke="#C6A45A" stroke-width="1.5" fill="none"/><rect x="28" y="48" width="24" height="26" fill="none" stroke="#C6A45A" stroke-width="1.2"/><rect x="10" y="38" width="16" height="16" fill="none" stroke="#C6A45A" stroke-width="1.2"/><rect x="54" y="38" width="16" height="16" fill="none" stroke="#C6A45A" stroke-width="1.2"/></svg>
-        </div>
-        <div class="prop-overlay"></div>
-        <span class="prop-badge">Flagship</span>
+    <!-- Card 1 -->
+    <div class="apt-card">
+      <div class="apt-img tall">
+        <div class="apt-photo" style="background-image:url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=85');"></div>
+        <div class="apt-overlay"></div>
+        <span class="apt-badge">Superhost ★4.97</span>
       </div>
-      <div class="prop-info">
-        <div class="prop-loc">Kololo, Kampala</div>
-        <h3 class="prop-name">IvyRose Kololo Heights</h3>
-        <p class="prop-desc">Perched atop Kololo Hill with sweeping panoramic views of Kampala. 42 exclusive suites and penthouses with world-class amenities.</p>
-        <a href="#" class="prop-link">Discover More</a>
+      <div class="apt-info">
+        <div class="apt-loc">Kololo, Kampala · 3 Bed · 6 Guests</div>
+        <h3 class="apt-name">Kololo Heights Penthouse</h3>
+        <p class="apt-desc">Entire apartment · Stunning panoramic views of Kampala. Fully equipped kitchen, rooftop terrace, fast Wi-Fi, Netflix &amp; secure parking.</p>
+        <a href="#" class="apt-link">Book on Airbnb</a>
       </div>
     </div>
 
-    <div class="prop-card">
-      <div class="prop-img">
-        <div class="prop-bg prop-grad-2">
-          <div class="prop-inner-glow" style="position:absolute;inset:0;"></div>
-          <svg width="70" height="70" viewBox="0 0 70 70" fill="none" opacity="0.2"><circle cx="35" cy="35" r="30" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M35 12L52 28V52H18V28Z" stroke="#C6A45A" stroke-width="1.2" fill="none"/><circle cx="35" cy="35" r="7" stroke="#C6A45A" stroke-width="1" fill="none"/></svg>
-        </div>
-        <div class="prop-overlay"></div>
-        <span class="prop-badge">City Centre</span>
+    <!-- Card 2 -->
+    <div class="apt-card">
+      <div class="apt-img">
+        <div class="apt-photo" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=85');"></div>
+        <div class="apt-overlay"></div>
+        <span class="apt-badge">★4.95 · 38 Reviews</span>
       </div>
-      <div class="prop-info">
-        <div class="prop-loc">Nakasero, Kampala</div>
-        <h3 class="prop-name">Nakasero Suites</h3>
-        <p class="prop-desc">28 elegantly appointed suites in Kampala's diplomatic quarter with butler service.</p>
-        <a href="#" class="prop-link">Discover More</a>
+      <div class="apt-info">
+        <div class="apt-loc">Nakasero, Kampala · Studio · 2 Guests</div>
+        <h3 class="apt-name">Nakasero Studio Suite</h3>
+        <p class="apt-desc">Chic studio in Kampala's diplomatic quarter. Perfect for solo travellers or couples on short business or leisure stays.</p>
+        <a href="#" class="apt-link">Book on Airbnb</a>
       </div>
     </div>
 
-    <div class="prop-card">
-      <div class="prop-img">
-        <div class="prop-bg prop-grad-3">
-          <div class="prop-inner-glow" style="position:absolute;inset:0;"></div>
-          <svg width="70" height="70" viewBox="0 0 70 70" fill="none" opacity="0.2"><path d="M10 55 Q25 18 42 36 Q58 54 70 26" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M18 65V40H55V65" stroke="#C6A45A" stroke-width="1.2" fill="none"/><rect x="29" y="48" width="14" height="17" fill="none" stroke="#C6A45A" stroke-width="1"/></svg>
-        </div>
-        <div class="prop-overlay"></div>
-        <span class="prop-badge">Lake Views</span>
+    <!-- Card 3 -->
+    <div class="apt-card">
+      <div class="apt-img">
+        <div class="apt-photo" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=85');"></div>
+        <div class="apt-overlay"></div>
+        <span class="apt-badge">Lake Views · ★5.0</span>
       </div>
-      <div class="prop-info">
-        <div class="prop-loc">Muyenga, Kampala</div>
-        <h3 class="prop-name">Muyenga Ridge</h3>
-        <p class="prop-desc">Overlooking Lake Victoria with private terraces and an infinity pool.</p>
-        <a href="#" class="prop-link">Discover More</a>
+      <div class="apt-info">
+        <div class="apt-loc">Muyenga, Kampala · 2 Bed · 4 Guests</div>
+        <h3 class="apt-name">Muyenga Ridge Apartment</h3>
+        <p class="apt-desc">Wake up to breathtaking Lake Victoria views from your private balcony. Includes pool access and secure gated compound.</p>
+        <a href="#" class="apt-link">Book on Airbnb</a>
       </div>
     </div>
 
-    <div class="prop-card">
-      <div class="prop-img">
-        <div class="prop-bg prop-grad-4">
-          <div class="prop-inner-glow" style="position:absolute;inset:0;"></div>
-          <svg width="70" height="70" viewBox="0 0 70 70" fill="none" opacity="0.2"><path d="M35 5L65 35L35 65L5 35Z" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M35 18L52 35L35 52L18 35Z" stroke="#C6A45A" stroke-width="1" fill="none"/><circle cx="35" cy="35" r="7" stroke="#C6A45A" stroke-width="1" fill="none"/></svg>
-        </div>
-        <div class="prop-overlay"></div>
-        <span class="prop-badge">New Opening</span>
+    <!-- Card 4 -->
+    <div class="apt-card">
+      <div class="apt-img">
+        <div class="apt-photo" style="background-image:url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&q=85');"></div>
+        <div class="apt-overlay"></div>
+        <span class="apt-badge">New · ★4.98</span>
       </div>
-      <div class="prop-info">
-        <div class="prop-loc">Entebbe</div>
-        <h3 class="prop-name">Entebbe Lake Residences</h3>
-        <p class="prop-desc">A serene lakeside escape with 24 lake-view suites and a private marina.</p>
-        <a href="#" class="prop-link">Discover More</a>
+      <div class="apt-info">
+        <div class="apt-loc">Entebbe · 2 Bed · 4 Guests</div>
+        <h3 class="apt-name">Entebbe Garden Apartment</h3>
+        <p class="apt-desc">Serene ground-floor apartment minutes from Entebbe Airport. Lush garden, fully equipped kitchen, ideal for layovers or getaways.</p>
+        <a href="#" class="apt-link">Book on Airbnb</a>
       </div>
     </div>
 
-    <div class="prop-card">
-      <div class="prop-img">
-        <div class="prop-bg prop-grad-5">
-          <div class="prop-inner-glow" style="position:absolute;inset:0;"></div>
-          <svg width="70" height="70" viewBox="0 0 70 70" fill="none" opacity="0.2"><rect x="8" y="8" width="54" height="54" stroke="#C6A45A" stroke-width="1.5" fill="none"/><rect x="18" y="18" width="34" height="34" stroke="#C6A45A" stroke-width="1" fill="none"/><line x1="8" y1="35" x2="62" y2="35" stroke="#C6A45A" stroke-width="0.8"/><line x1="35" y1="8" x2="35" y2="62" stroke="#C6A45A" stroke-width="0.8"/></svg>
-        </div>
-        <div class="prop-overlay"></div>
-        <span class="prop-badge">Business Hub</span>
+    <!-- Card 5 -->
+    <div class="apt-card">
+      <div class="apt-img">
+        <div class="apt-photo" style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=85');"></div>
+        <div class="apt-overlay"></div>
+        <span class="apt-badge">Corporate Stays</span>
       </div>
-      <div class="prop-info">
-        <div class="prop-loc">Kampala</div>
-        <h3 class="prop-name">IvyRose Business Suites</h3>
-        <p class="prop-desc">Purpose-built for the modern executive with offices and meeting rooms.</p>
-        <a href="#" class="prop-link">Discover More</a>
+      <div class="apt-info">
+        <div class="apt-loc">Kampala CBD · 1 Bed · 2 Guests</div>
+        <h3 class="apt-name">IvyRose Executive Studio</h3>
+        <p class="apt-desc">Designed for the business traveller. Dedicated work desk, ultra-fast fibre Wi-Fi, smart TV, flexible check-in/check-out.</p>
+        <a href="#" class="apt-link">Book on Airbnb</a>
       </div>
     </div>
 
-    <div class="prop-card">
-      <div class="prop-img">
-        <div class="prop-bg prop-grad-6">
-          <div class="prop-inner-glow" style="position:absolute;inset:0;"></div>
-          <svg width="70" height="70" viewBox="0 0 70 70" fill="none" opacity="0.2"><path d="M35 7L64 25V55L35 63L6 55V25Z" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M35 18L52 28V48L35 55L18 48V28Z" stroke="#C6A45A" stroke-width="1" fill="none"/><circle cx="35" cy="35" r="6" stroke="#C6A45A" stroke-width="1" fill="none"/></svg>
-        </div>
-        <div class="prop-overlay"></div>
-        <span class="prop-badge">Heritage</span>
+    <!-- Card 6 -->
+    <div class="apt-card">
+      <div class="apt-img">
+        <div class="apt-photo" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=85');"></div>
+        <div class="apt-overlay"></div>
+        <span class="apt-badge">River Views · ★4.96</span>
       </div>
-      <div class="prop-info">
-        <div class="prop-loc">Jinja, Uganda</div>
-        <h3 class="prop-name">IvyRose Nile View</h3>
-        <p class="prop-desc">Boutique riverside villas where the River Nile meets luxury living.</p>
-        <a href="#" class="prop-link">Discover More</a>
+      <div class="apt-info">
+        <div class="apt-loc">Jinja, Uganda · 3 Bed · 6 Guests</div>
+        <h3 class="apt-name">IvyRose Nile View Villa</h3>
+        <p class="apt-desc">Stunning riverside villa overlooking the source of the Nile. Perfect for families, groups, or a special weekend escape from Kampala.</p>
+        <a href="#" class="apt-link">Book on Airbnb</a>
       </div>
     </div>
 
   </div>
 </section>
+
+<!-- PHOTO GALLERY -->
+<div class="gallery reveal">
+  <div class="tc">
+    <span class="sec-eyebrow" style="color:var(--gold2);">Inside IvyRose</span>
+    <h2 class="sec-title" style="color:#fff;">A Glimpse of <em>Your Stay</em></h2>
+    <div class="gold-rule"></div>
+  </div>
+  <div class="gallery-grid">
+
+    <div class="gitem tall">
+      <div class="gitem-photo" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=85');height:100%;"></div>
+      <div class="gitem-overlay"></div>
+      <span class="gitem-label">Master Bedroom</span>
+    </div>
+
+    <div class="gcol">
+      <div class="gitem">
+        <div class="gitem-photo" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85');height:100%;"></div>
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Fully Equipped Kitchen</span>
+      </div>
+      <div class="gitem">
+        <div class="gitem-photo" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=85');height:100%;"></div>
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Luxury Bathroom</span>
+      </div>
+    </div>
+
+    <div class="gcol">
+      <div class="gitem">
+        <div class="gitem-photo" style="background-image:url('https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=85');height:100%;"></div>
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Living &amp; Dining</span>
+      </div>
+      <div class="gitem">
+        <div class="gitem-photo" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=85');height:100%;"></div>
+        <div class="gitem-overlay"></div>
+        <span class="gitem-label">Pool &amp; Outdoor</span>
+      </div>
+    </div>
+
+    <div class="gitem tall">
+      <div class="gitem-photo" style="background-image:url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=85');height:100%;"></div>
+      <div class="gitem-overlay"></div>
+      <span class="gitem-label">Cosy Bedroom Suite</span>
+    </div>
+
+  </div>
+</div>
 
 <!-- OFFERS -->
 <section class="offers reveal" id="offers">
-  <div class="text-center">
-    <span class="section-eyebrow">Exclusive Packages</span>
-    <h2 class="section-title" style="color:#fff;">Featured <em>Offers</em></h2>
+  <div class="tc">
+    <span class="sec-eyebrow" style="color:var(--gold2);">Special Deals</span>
+    <h2 class="sec-title" style="color:#fff;">Current <em>Offers</em></h2>
     <div class="gold-rule"></div>
-    <p class="section-subtitle">Curated experiences and seasonal packages for our most valued guests</p>
+    <p class="sec-sub">Book direct or on Airbnb — exclusive rates and packages for every type of stay</p>
   </div>
   <div class="offers-grid">
-    <div class="offer-card">
-      <span class="offer-tag">Long Stay</span>
-      <h3 class="offer-title">Resident Privilege Package</h3>
-      <p class="offer-text">Monthly residents enjoy complimentary airport transfers, daily housekeeping, and full access to all IvyRose amenities.</p>
+    <div class="offer">
+      <span class="offer-tag">Weekly Deal</span>
+      <h3 class="offer-title">7-Night Stay Discount</h3>
+      <p class="offer-text">Book any IvyRose apartment for 7 nights or more and enjoy 15% off your total stay — automatically applied on Airbnb.</p>
+      <div class="offer-price">Save 15% <span>/ 7+ nights</span></div>
+      <a href="#" class="offer-book">Book on Airbnb</a>
+    </div>
+    <div class="offer">
+      <span class="offer-tag">Monthly Rate</span>
+      <h3 class="offer-title">Extended Stay Special</h3>
+      <p class="offer-text">Stay a full month and unlock our best rate. Includes free airport pickup, weekly housekeeping, and a welcome basket.</p>
       <div class="offer-price">From $850 <span>/ month</span></div>
-      <a href="#" class="offer-book">Book Now</a>
+      <a href="#" class="offer-book">Enquire Now</a>
     </div>
-    <div class="offer-card">
+    <div class="offer">
       <span class="offer-tag">Weekend Escape</span>
-      <h3 class="offer-title">Kampala Luxury Weekend</h3>
-      <p class="offer-text">2 nights in a premium suite with breakfast, city tour, and a sunset rooftop dinner for two.</p>
-      <div class="offer-price">From $320 <span>/ 2 nights</span></div>
-      <a href="#" class="offer-book">Book Now</a>
+      <h3 class="offer-title">Fri–Sun Getaway Deal</h3>
+      <p class="offer-text">Weekend short stays in our lake-view or Nile-view apartments — minimum 2 nights. Perfect couple or family escape.</p>
+      <div class="offer-price">From $120 <span>/ night</span></div>
+      <a href="#" class="offer-book">Book on Airbnb</a>
     </div>
-    <div class="offer-card">
-      <span class="offer-tag">Romance</span>
-      <h3 class="offer-title">Lake View Honeymoon Suite</h3>
-      <p class="offer-text">Rose petal turndown, champagne welcome, couples spa treatment, and a private lakeside dinner.</p>
-      <div class="offer-price">From $580 <span>/ 3 nights</span></div>
-      <a href="#" class="offer-book">Book Now</a>
-    </div>
-    <div class="offer-card">
+    <div class="offer">
       <span class="offer-tag">Corporate</span>
-      <h3 class="offer-title">Executive Business Package</h3>
-      <p class="offer-text">Dedicated workspace, ultra-fast internet, meeting room access, and concierge support.</p>
-      <div class="offer-price">From $180 <span>/ night</span></div>
-      <a href="#" class="offer-book">Book Now</a>
+      <h3 class="offer-title">Business Travel Rate</h3>
+      <p class="offer-text">Relocating or on a long project? We offer negotiated corporate rates for business travellers and company teams.</p>
+      <div class="offer-price">Custom <span>pricing</span></div>
+      <a href="#" class="offer-book">Get a Quote</a>
     </div>
   </div>
   <div style="text-align:center;margin-top:56px;">
-    <a href="#" class="btn-outline">View All Offers</a>
+    <a href="https://airbnb.com" target="_blank" class="btn-ghost">View All Listings on Airbnb</a>
   </div>
 </section>
 
-<!-- EXPERIENCES -->
-<section class="experiences reveal" id="experiences">
-  <div class="text-center">
-    <span class="section-eyebrow">Unique Experiences</span>
-    <h2 class="section-title">Tailored <em>Just for You</em></h2>
+<!-- AMENITIES -->
+<section class="amenities reveal" id="amenities">
+  <div class="tc">
+    <span class="sec-eyebrow">What's Included</span>
+    <h2 class="sec-title">Apartment <em>Amenities</em></h2>
     <div class="gold-rule"></div>
-    <p class="section-subtitle">Beyond accommodation — immerse yourself in curated moments crafted to perfection</p>
+    <p class="sec-sub">Every IvyRose apartment comes fully equipped so you can settle in instantly and feel right at home</p>
   </div>
-  <div class="exp-tabs">
-    <div class="exp-tab active" onclick="switchTab(this)">All Experiences</div>
-    <div class="exp-tab" onclick="switchTab(this)">Dining</div>
-    <div class="exp-tab" onclick="switchTab(this)">Wellness &amp; Spa</div>
-    <div class="exp-tab" onclick="switchTab(this)">Culture &amp; Tours</div>
-    <div class="exp-tab" onclick="switchTab(this)">Meetings &amp; Events</div>
+  <div class="amen-tabs">
+    <div class="tab active" onclick="switchTab(this)">All Amenities</div>
+    <div class="tab" onclick="switchTab(this)">Kitchen</div>
+    <div class="tab" onclick="switchTab(this)">Comfort</div>
+    <div class="tab" onclick="switchTab(this)">Tech &amp; Work</div>
+    <div class="tab" onclick="switchTab(this)">Safety</div>
   </div>
-  <div class="exp-grid">
-    <div class="exp-card">
-      <div class="exp-img">
-        <div class="exp-bg exp-bg-1">
-          <div class="exp-glow"></div>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.25"><circle cx="32" cy="32" r="24" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M20 44 L32 18 L44 44" stroke="#C6A45A" stroke-width="1.2" fill="none"/><line x1="23" y1="36" x2="41" y2="36" stroke="#C6A45A" stroke-width="1"/></svg>
-        </div>
+  <div class="amen-grid">
+
+    <div class="amen-card">
+      <div class="amen-img">
+        <div class="amen-photo" style="background-image:url('https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=85');"></div>
+        <div class="amen-overlay"></div>
       </div>
-      <div class="exp-body">
-        <div class="exp-cat">Dining</div>
-        <h3 class="exp-title">Rooftop Sunset Dinner</h3>
-        <p class="exp-text">An unforgettable evening under the stars on our signature rooftop terrace with panoramic Kampala views and a bespoke menu by our Executive Chef.</p>
-        <a href="#" class="exp-learn">Learn More</a>
-      </div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-img">
-        <div class="exp-bg exp-bg-2">
-          <div class="exp-glow"></div>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.25"><path d="M12 52 Q32 8 52 52" stroke="#C6A45A" stroke-width="1.5" fill="none"/><circle cx="32" cy="28" r="10" stroke="#C6A45A" stroke-width="1.2" fill="none"/><line x1="32" y1="38" x2="32" y2="54" stroke="#C6A45A" stroke-width="1.2"/></svg>
-        </div>
-      </div>
-      <div class="exp-body">
-        <div class="exp-cat">Wellness</div>
-        <h3 class="exp-title">IvyRose Signature Spa</h3>
-        <p class="exp-text">Treatments inspired by ancient African wellness rituals using locally sourced botanicals, warm stone therapies, and healing aromas.</p>
-        <a href="#" class="exp-learn">Learn More</a>
+      <div class="amen-body">
+        <div class="amen-cat">Kitchen</div>
+        <h3 class="amen-title">Fully Equipped Kitchen</h3>
+        <p class="amen-text">Cook your own meals with ease — every apartment includes a full kitchen with fridge, microwave, oven, hob, cookware, crockery, and a Nespresso machine.</p>
+        <a href="#" class="amen-learn">Learn More</a>
       </div>
     </div>
-    <div class="exp-card">
-      <div class="exp-img">
-        <div class="exp-bg exp-bg-3">
-          <div class="exp-glow"></div>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.25"><path d="M32 8L56 30V56H8V30Z" stroke="#C6A45A" stroke-width="1.5" fill="none"/><rect x="24" y="40" width="16" height="16" fill="none" stroke="#C6A45A" stroke-width="1"/><path d="M14 30L32 14L50 30" stroke="#C6A45A" stroke-width="1" fill="none"/></svg>
-        </div>
+
+    <div class="amen-card">
+      <div class="amen-img">
+        <div class="amen-photo" style="background-image:url('https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=85');"></div>
+        <div class="amen-overlay"></div>
       </div>
-      <div class="exp-body">
-        <div class="exp-cat">Culture</div>
-        <h3 class="exp-title">Kampala Heritage City Tour</h3>
-        <p class="exp-text">Explore Kampala's rich history from the Kasubi Tombs to the National Museum, guided by our expert cultural hosts.</p>
-        <a href="#" class="exp-learn">Learn More</a>
-      </div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-img">
-        <div class="exp-bg exp-bg-4">
-          <div class="exp-glow"></div>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.25"><path d="M8 48 Q20 28 32 36 Q44 44 56 18" stroke="#C6A45A" stroke-width="1.5" fill="none"/><circle cx="32" cy="36" r="5" stroke="#C6A45A" stroke-width="1" fill="none"/><path d="M10 54 L54 54" stroke="#C6A45A" stroke-width="1"/></svg>
-        </div>
-      </div>
-      <div class="exp-body">
-        <div class="exp-cat">Adventure</div>
-        <h3 class="exp-title">Lake Victoria Sunset Cruise</h3>
-        <p class="exp-text">Board a private vessel on Africa's largest lake for a magical sunset cruise with canapés and cocktails as the sun dips below the horizon.</p>
-        <a href="#" class="exp-learn">Learn More</a>
+      <div class="amen-body">
+        <div class="amen-cat">Comfort</div>
+        <h3 class="amen-title">Hotel-Quality Linen &amp; Beds</h3>
+        <p class="amen-text">Crisp, freshly laundered premium linen and towels provided for every stay. Mid-stay housekeeping available on request for longer visits.</p>
+        <a href="#" class="amen-learn">Learn More</a>
       </div>
     </div>
-    <div class="exp-card">
-      <div class="exp-img">
-        <div class="exp-bg exp-bg-5">
-          <div class="exp-glow"></div>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.25"><rect x="8" y="20" width="48" height="32" stroke="#C6A45A" stroke-width="1.5" fill="none" rx="1"/><path d="M8 28 L56 28" stroke="#C6A45A" stroke-width="1"/><circle cx="32" cy="12" r="4" stroke="#C6A45A" stroke-width="1.2" fill="none"/><line x1="32" y1="16" x2="32" y2="20" stroke="#C6A45A" stroke-width="1.2"/></svg>
-        </div>
+
+    <div class="amen-card">
+      <div class="amen-img">
+        <div class="amen-photo" style="background-image:url('https://images.unsplash.com/photo-1593696140826-c58b021acf8b?w=800&q=85');"></div>
+        <div class="amen-overlay"></div>
       </div>
-      <div class="exp-body">
-        <div class="exp-cat">Meetings</div>
-        <h3 class="exp-title">Bespoke Conference Packages</h3>
-        <p class="exp-text">State-of-the-art event facilities for up to 200 guests with AV technology, dedicated coordinator, and bespoke catering.</p>
-        <a href="#" class="exp-learn">Learn More</a>
-      </div>
-    </div>
-    <div class="exp-card">
-      <div class="exp-img">
-        <div class="exp-bg exp-bg-6">
-          <div class="exp-glow"></div>
-          <svg width="64" height="64" viewBox="0 0 64 64" fill="none" opacity="0.25"><path d="M32 8 C16 8 8 20 8 32 C8 44 20 56 32 56 C44 56 56 44 56 32 C56 20 48 8 32 8Z" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M20 32 C20 24 26 18 32 18 C38 18 44 24 44 32" stroke="#C6A45A" stroke-width="1" fill="none"/><line x1="32" y1="44" x2="32" y2="56" stroke="#C6A45A" stroke-width="1.2"/></svg>
-        </div>
-      </div>
-      <div class="exp-body">
-        <div class="exp-cat">Wellness</div>
-        <h3 class="exp-title">Fitness &amp; Pool Retreats</h3>
-        <p class="exp-text">World-class fitness suites, heated pools, and yoga decks offering daily renewal with guided sessions available on request.</p>
-        <a href="#" class="exp-learn">Learn More</a>
+      <div class="amen-body">
+        <div class="amen-cat">Tech &amp; Work</div>
+        <h3 class="amen-title">High-Speed Wi-Fi &amp; Smart TV</h3>
+        <p class="amen-text">Stay connected with fibre internet throughout, a 55" Smart TV with Netflix and DSTV, and a dedicated work desk in every apartment.</p>
+        <a href="#" class="amen-learn">Learn More</a>
       </div>
     </div>
+
+    <div class="amen-card">
+      <div class="amen-img">
+        <div class="amen-photo" style="background-image:url('https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=800&q=85');"></div>
+        <div class="amen-overlay"></div>
+      </div>
+      <div class="amen-body">
+        <div class="amen-cat">Safety</div>
+        <h3 class="amen-title">Secure Gated Compounds</h3>
+        <p class="amen-text">All IvyRose apartments are in secure, gated compounds with 24/7 security, CCTV, and free on-site parking for guests with vehicles.</p>
+        <a href="#" class="amen-learn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="amen-card">
+      <div class="amen-img">
+        <div class="amen-photo" style="background-image:url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=85');"></div>
+        <div class="amen-overlay"></div>
+      </div>
+      <div class="amen-body">
+        <div class="amen-cat">Bathroom</div>
+        <h3 class="amen-title">Spa-Style Bathrooms</h3>
+        <p class="amen-text">Rain showers, deep soaking tubs, premium toiletries and heated towel rails — your daily routine becomes a moment of luxury.</p>
+        <a href="#" class="amen-learn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="amen-card">
+      <div class="amen-img">
+        <div class="amen-photo" style="background-image:url('https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=800&q=85');"></div>
+        <div class="amen-overlay"></div>
+      </div>
+      <div class="amen-body">
+        <div class="amen-cat">Extras</div>
+        <h3 class="amen-title">Pool, Gym &amp; Airport Transfers</h3>
+        <p class="amen-text">Select properties include pool and gym access. We also offer optional airport transfers, welcome grocery packs, and baby equipment on request.</p>
+        <a href="#" class="amen-learn">Learn More</a>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<!-- SUSTAINABILITY -->
-<div class="sustain reveal">
+<!-- SUPERHOST STRIP -->
+<div class="superhost reveal">
   <div>
-    <div class="sustain-big">Our<em>Commit-<br>ment</em></div>
+    <div class="sh-big">Super-<em>host<br>★ 4.9</em></div>
   </div>
-  <div class="sustain-content">
-    <span class="section-eyebrow">Sustainability</span>
-    <h2 class="section-title">Responsible <em>Luxury</em></h2>
+  <div class="sh-content">
+    <span class="sec-eyebrow">Why IvyRose</span>
+    <h2 class="sec-title">The Airbnb <em>Superhost</em> Difference</h2>
     <div class="gold-rule"></div>
-    <p class="section-subtitle">At IvyRose, we believe luxury and responsibility are inseparable. Our commitment to sustainable living shapes every decision we make.</p>
-    <div class="sustain-points">
-      <div class="s-point"><div class="s-dot"></div><div class="s-text">Solar-powered common areas across all properties</div></div>
-      <div class="s-point"><div class="s-dot"></div><div class="s-text">Supporting local artisans and suppliers</div></div>
-      <div class="s-point"><div class="s-dot"></div><div class="s-text">Zero single-use plastics across all residences</div></div>
-      <div class="s-point"><div class="s-dot"></div><div class="s-text">Community investment &amp; skills development</div></div>
+    <p class="sec-sub">We're not just a listing — we're a dedicated team passionate about delivering 5-star stays every single time.</p>
+    <div class="sh-points">
+      <div class="shp"><div class="shp-dot"></div><div class="shp-text">Verified Airbnb Superhost with consistent 4.9★ average rating</div></div>
+      <div class="shp"><div class="shp-dot"></div><div class="shp-text">Professionally deep-cleaned before every single check-in</div></div>
+      <div class="shp"><div class="shp-dot"></div><div class="shp-text">Self check-in with smart lock — no waiting, arrive any time</div></div>
+      <div class="shp"><div class="shp-dot"></div><div class="shp-text">24/7 WhatsApp support from your dedicated host team</div></div>
     </div>
-    <div style="margin-top:40px;"><a href="#" class="btn-primary">Learn More</a></div>
+    <div style="margin-top:40px;"><a href="https://airbnb.com" target="_blank" class="btn-gold">See Our Reviews on Airbnb</a></div>
   </div>
 </div>
 
-<!-- NEWS -->
-<section class="news reveal">
-  <div class="text-center">
-    <span class="section-eyebrow">Latest News</span>
-    <h2 class="section-title">From the <em>IvyRose Journal</em></h2>
+<!-- REVIEWS -->
+<section class="reviews reveal" id="reviews">
+  <div class="tc">
+    <span class="sec-eyebrow">Guest Reviews</span>
+    <h2 class="sec-title">What Our <em>Guests Say</em></h2>
     <div class="gold-rule"></div>
   </div>
-  <div class="news-grid">
-    <div class="news-card">
-      <div class="news-img-box">
-        <div class="news-bg news-bg-1">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" opacity="0.25"><path d="M8 48L28 8L48 48" stroke="#C6A45A" stroke-width="1.5" fill="none"/><line x1="16" y1="34" x2="40" y2="34" stroke="#C6A45A" stroke-width="1"/></svg>
-        </div>
+  <div class="reviews-grid">
+
+    <div class="review-card">
+      <div class="review-imgbox">
+        <div class="review-photo" style="background-image:url('https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=85');"></div>
+        <div class="review-overlay"></div>
       </div>
-      <div class="news-date">March 2026</div>
-      <h3 class="news-title">IvyRose Wins East Africa's Leading Serviced Apartments Award</h3>
-      <p class="news-snippet">For the second consecutive year, IvyRose has been recognised at the World Travel Awards as East Africa's finest luxury serviced apartment brand.</p>
-      <a href="#" class="news-read">Read More</a>
+      <div class="review-date">Kololo Heights · February 2026</div>
+      <h3 class="review-title">"Absolutely stunning — felt like a 5-star hotel"</h3>
+      <p class="review-text">The apartment was spotless, beautifully furnished and the views of Kampala at night were incredible. The host responded within minutes every time. Will 100% be back.</p>
+      <span class="review-author">— Sarah M., Nairobi · Airbnb Review</span>
     </div>
-    <div class="news-card">
-      <div class="news-img-box">
-        <div class="news-bg news-bg-2">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" opacity="0.25"><circle cx="28" cy="28" r="22" stroke="#C6A45A" stroke-width="1.5" fill="none"/><path d="M18 28 Q28 14 38 28 Q28 42 18 28" stroke="#C6A45A" stroke-width="1" fill="none"/></svg>
-        </div>
+
+    <div class="review-card">
+      <div class="review-imgbox">
+        <div class="review-photo" style="background-image:url('https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&q=85');"></div>
+        <div class="review-overlay"></div>
       </div>
-      <div class="news-date">February 2026</div>
-      <h3 class="news-title">New Entebbe Lakeside Residences Now Open for Reservations</h3>
-      <p class="news-snippet">Our newest property on the shores of Lake Victoria brings IvyRose's signature luxury to Entebbe, with 24 lake-view suites and a private marina.</p>
-      <a href="#" class="news-read">Read More</a>
+      <div class="review-date">Muyenga Ridge · January 2026</div>
+      <h3 class="review-title">"Best Airbnb I've stayed in across Africa"</h3>
+      <p class="review-text">Waking up to Lake Victoria every morning was something else. The kitchen was fully stocked, the bed was incredibly comfortable, and the whole space felt like a luxury home.</p>
+      <span class="review-author">— James O., London · Airbnb Review</span>
     </div>
-    <div class="news-card">
-      <div class="news-img-box">
-        <div class="news-bg news-bg-3">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" opacity="0.25"><rect x="10" y="10" width="36" height="36" stroke="#C6A45A" stroke-width="1.5" fill="none" rx="1"/><line x1="10" y1="24" x2="46" y2="24" stroke="#C6A45A" stroke-width="1"/><line x1="24" y1="10" x2="24" y2="46" stroke="#C6A45A" stroke-width="1"/></svg>
-        </div>
+
+    <div class="review-card">
+      <div class="review-imgbox">
+        <div class="review-photo" style="background-image:url('https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=85');"></div>
+        <div class="review-overlay"></div>
       </div>
-      <div class="news-date">January 2026</div>
-      <h3 class="news-title">IvyRose Launches Sustainable Living Initiative Across All Properties</h3>
-      <p class="news-snippet">Our Green Residences Programme introduces solar energy, rainwater harvesting, and farm-to-table dining partnerships across the entire portfolio.</p>
-      <a href="#" class="news-read">Read More</a>
+      <div class="review-date">Nile View, Jinja · December 2025</div>
+      <h3 class="review-title">"Perfect family getaway — we didn't want to leave"</h3>
+      <p class="review-text">We stayed with our kids for a long weekend and it was perfect. Spacious, safe compound, the Nile views were magical, and the host arranged airport pickup for us. Flawless.</p>
+      <span class="review-author">— Amina K., Kampala · Airbnb Review</span>
     </div>
+
   </div>
 </section>
 
-<!-- MEMBERSHIP -->
-<section class="loyalty reveal" id="membership">
+<!-- GUEST PERKS -->
+<section class="perks-section reveal" id="perks">
   <div>
-    <span class="section-eyebrow">Membership Programme</span>
-    <h2 class="section-title">The IvyRose <em>Circle</em></h2>
+    <span class="sec-eyebrow">Guest Perks</span>
+    <h2 class="sec-title">Returning <em>Guest Benefits</em></h2>
     <div class="gold-rule"></div>
-    <p class="section-subtitle">Join an exclusive community of discerning residents and travellers who enjoy the finest privileges across all IvyRose properties.</p>
+    <p class="sec-sub">Book directly with us and unlock exclusive benefits you won't find on any third-party platform.</p>
     <div class="perks-grid">
-      <div class="perk"><div class="perk-icon">🏆</div><div class="perk-title">Priority Booking</div><div class="perk-text">First access to new properties and exclusive seasonal offers before they open to the public.</div></div>
-      <div class="perk"><div class="perk-icon">🌿</div><div class="perk-title">Complimentary Upgrades</div><div class="perk-text">Circle members receive complimentary room and suite upgrades subject to availability.</div></div>
-      <div class="perk"><div class="perk-icon">✦</div><div class="perk-title">Reward Points</div><div class="perk-text">Earn IvyRose Points on every stay, dining experience, and spa treatment.</div></div>
-      <div class="perk"><div class="perk-icon">🛎</div><div class="perk-title">Dedicated Concierge</div><div class="perk-text">Your personal IvyRose concierge available 24 hours a day, 7 days a week.</div></div>
+      <div class="perk"><div class="perk-icon">💰</div><div class="perk-title">Direct Booking Discount</div><div class="perk-text">Skip the Airbnb service fee — book direct via WhatsApp or email for the best available rate.</div></div>
+      <div class="perk"><div class="perk-icon">🚗</div><div class="perk-title">Free Airport Pickup</div><div class="perk-text">Returning guests get a complimentary transfer from Entebbe International Airport on stays of 5+ nights.</div></div>
+      <div class="perk"><div class="perk-icon">🛒</div><div class="perk-title">Welcome Grocery Pack</div><div class="perk-text">Arrive to a stocked fridge — essentials, breakfast items, and fresh fruit waiting for you on check-in.</div></div>
+      <div class="perk"><div class="perk-icon">📅</div><div class="perk-title">Flexible Check-in</div><div class="perk-text">Early check-in and late check-out available for repeat guests, subject to availability — at no extra cost.</div></div>
     </div>
   </div>
   <div class="join-box">
-    <div class="join-title">Join the Circle</div>
-    <div class="join-sub">IvyRose Membership — Complimentary</div>
+    <div class="join-title">Stay in Touch</div>
+    <div class="join-sub">Get deals &amp; availability updates direct</div>
     <input type="text" placeholder="Full Name">
     <input type="email" placeholder="Email Address">
-    <input type="tel" placeholder="Phone Number">
-    <button>Register Now</button>
-    <p class="join-note">By registering you agree to our Privacy Policy. Membership is complimentary and can be cancelled at any time.</p>
+    <input type="tel" placeholder="WhatsApp Number">
+    <button>Send Me Deals</button>
+    <p class="join-note">We'll send you exclusive rates, new apartment launches and availability — no spam, ever. Unsubscribe anytime.</p>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer id="contact">
-  <div class="footer-grid">
+  <div class="ft-grid">
     <div>
-      <svg width="170" height="56" viewBox="0 0 210 62" fill="none">
-        <path d="M22 36L22 49L40 49L40 36" stroke="#C6A45A" stroke-width="2.2" fill="none"/>
+      <svg width="170" height="56" viewBox="0 0 210 64" fill="none">
+        <path d="M22 36L22 50L40 50L40 36" stroke="#C6A45A" stroke-width="2.2" fill="none"/>
         <path d="M15 36L31 20L47 36" stroke="#C6A45A" stroke-width="2.4" fill="none" stroke-linejoin="round"/>
         <rect x="27" y="27" width="8" height="8" fill="#C6A45A" opacity="0.75"/>
         <line x1="47" y1="29" x2="70" y2="29" stroke="#C6A45A" stroke-width="2.2"/>
@@ -791,58 +813,63 @@ footer { background: #08160D; color: rgba(255,255,255,0.5); padding: 80px 48px 4
         <line x1="59" y1="29" x2="59" y2="34" stroke="#C6A45A" stroke-width="2"/>
         <line x1="64" y1="29" x2="64" y2="33" stroke="#C6A45A" stroke-width="2"/>
         <text x="18" y="57" font-family="Georgia,'Times New Roman',serif" font-size="14" font-weight="600" letter-spacing="5.5" fill="#C6A45A">IVYROSE</text>
-        <text x="19" y="64" font-family="Arial,sans-serif" font-size="6.2" letter-spacing="3.8" fill="rgba(198,164,90,0.55)">LUXURY APARTMENTS</text>
+        <text x="19" y="65" font-family="Arial,sans-serif" font-size="6.2" letter-spacing="3.8" fill="rgba(198,164,90,0.55)">LUXURY APARTMENTS</text>
       </svg>
-      <p class="footer-brand-text">IvyRose Luxury Apartments — redefining the art of refined living across East Africa. Where every residence tells a story of elegance, comfort, and belonging.</p>
-      <div class="footer-social">
+      <p class="ft-brand-text">IvyRose Luxury Apartments — redefining the art of refined living across East Africa. Where every residence tells a story of elegance, comfort, and belonging.</p>
+      <div class="ft-social">
         <a href="#">f</a>
         <a href="#">in</a>
         <a href="#">ig</a>
         <a href="#">yt</a>
       </div>
-      <div class="awards-strip">
-        <div class="award">Best Luxury Apartments EA 2025</div>
-        <div class="award">5-Star Excellence</div>
+      <div class="ft-awards">
+        <div class="ft-award">Airbnb Superhost ★4.9</div>
+        <div class="ft-award">500+ Happy Guests</div>
       </div>
     </div>
-    <div class="footer-col">
-      <h4>Our Properties</h4>
+
+    <div class="ft-col">
+      <h4>Our Apartments</h4>
       <ul>
-        <li><a href="#">Kololo Heights</a></li>
-        <li><a href="#">Nakasero Suites</a></li>
-        <li><a href="#">Muyenga Ridge</a></li>
-        <li><a href="#">Entebbe Lake Residences</a></li>
-        <li><a href="#">Business Suites</a></li>
-        <li><a href="#">IvyRose Nile View</a></li>
+        <li><a href="#">Kololo Heights Penthouse</a></li>
+        <li><a href="#">Nakasero Studio Suite</a></li>
+        <li><a href="#">Muyenga Ridge Apartment</a></li>
+        <li><a href="#">Entebbe Garden Apartment</a></li>
+        <li><a href="#">IvyRose Executive Studio</a></li>
+        <li><a href="#">Nile View Villa, Jinja</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+
+    <div class="ft-col">
       <h4>Quick Links</h4>
       <ul>
         <li><a href="#">About IvyRose</a></li>
-        <li><a href="#">Offers &amp; Packages</a></li>
-        <li><a href="#">Experiences</a></li>
-        <li><a href="#">Meetings &amp; Events</a></li>
-        <li><a href="#">IvyRose Circle</a></li>
-        <li><a href="#">Sustainability</a></li>
-        <li><a href="#">Careers</a></li>
-        <li><a href="#">Press Centre</a></li>
+        <li><a href="https://airbnb.com" target="_blank">All Listings on Airbnb</a></li>
+        <li><a href="#">Current Deals</a></li>
+        <li><a href="#">Apartment Amenities</a></li>
+        <li><a href="#">Corporate Stays</a></li>
+        <li><a href="#">Guest Perks</a></li>
+        <li><a href="#">House Rules</a></li>
+        <li><a href="#">FAQs</a></li>
       </ul>
     </div>
-    <div class="footer-col footer-contact">
-      <h4>Contact Us</h4>
-      <p><strong>Head Office</strong></p>
-      <p>Plot 14, Kololo Hill Drive<br>Kampala, Uganda</p>
-      <p style="margin-top:16px;"><strong>Reservations</strong></p>
-      <p><a href="tel:+256700000000">+256 700 000 000</a></p>
-      <p><a href="mailto:reservations@ivyrose.co.ug">reservations@ivyrose.co.ug</a></p>
-      <p style="margin-top:16px;"><strong>Concierge</strong></p>
-      <p><a href="mailto:concierge@ivyrose.co.ug">concierge@ivyrose.co.ug</a></p>
+
+    <div class="ft-col ft-contact">
+      <h4>Contact &amp; Book</h4>
+      <p><strong>WhatsApp (Fastest)</strong></p>
+      <p><a href="https://wa.me/256700000000" style="color:rgba(255,255,255,.47);text-decoration:none;">+256 700 000 000</a></p>
+      <p style="margin-top:14px;"><strong>Email</strong></p>
+      <p><a href="mailto:hello@ivyrose.co.ug" style="color:rgba(255,255,255,.47);text-decoration:none;">hello@ivyrose.co.ug</a></p>
+      <p style="margin-top:14px;"><strong>Book Online</strong></p>
+      <p><a href="https://airbnb.com" target="_blank" style="color:var(--gold);text-decoration:none;">View on Airbnb →</a></p>
+      <p style="margin-top:14px;"><strong>Based in</strong></p>
+      <p>Kampala, Uganda</p>
     </div>
   </div>
-  <div class="footer-bottom">
+
+  <div class="ft-bottom">
     <span>© 2026 IvyRose Luxury Apartments. All rights reserved.</span>
-    <div class="footer-links">
+    <div class="ft-links">
       <a href="#">Sitemap</a>
       <a href="#">Privacy Policy</a>
       <a href="#">Terms of Use</a>
@@ -853,31 +880,33 @@ footer { background: #08160D; color: rgba(255,255,255,0.5); padding: 80px 48px 4
 
 <script>
 // SLIDESHOW
-let cur = 0;
-const slides = document.querySelectorAll('.hero-slide');
-const dots   = document.querySelectorAll('.dot');
-function goSlide(n) {
+let cur=0;
+const slides=document.querySelectorAll('.hero-slide');
+const dots=document.querySelectorAll('.dot');
+function goSlide(n){
   slides[cur].classList.remove('active');
   dots[cur].classList.remove('active');
-  cur = n;
+  cur=n;
   slides[cur].classList.add('active');
   dots[cur].classList.add('active');
 }
-setInterval(() => goSlide((cur + 1) % slides.length), 5200);
+setInterval(()=>goSlide((cur+1)%slides.length),5500);
 
-// NAVBAR
-const nav = document.getElementById('navbar');
-window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 70));
+// NAVBAR SCROLL
+const nav=document.getElementById('navbar');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>70));
 
 // SCROLL REVEAL
-const obs = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}
+  });
+},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
 // TABS
-function switchTab(el) {
-  document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+function switchTab(el){
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
 }
 </script>
